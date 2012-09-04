@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E42F028E15F5F71D001BB3DB /* RSSAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42F028D15F5F71D001BB3DB /* RSSAppController.m */; };
 		E45144C915EF29AA00594E77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45144C815EF29AA00594E77 /* UIKit.framework */; };
 		E45144CB15EF29AA00594E77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45144CA15EF29AA00594E77 /* Foundation.framework */; };
 		E45144CD15EF29AA00594E77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45144CC15EF29AA00594E77 /* CoreGraphics.framework */; };
@@ -14,10 +15,11 @@
 		E45144D515EF29AA00594E77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E45144D415EF29AA00594E77 /* main.m */; };
 		E45144D915EF29AA00594E77 /* com_tdtsh_ios_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E45144D815EF29AA00594E77 /* com_tdtsh_ios_AppDelegate.m */; };
 		E45144DC15EF29AA00594E77 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E45144DA15EF29AA00594E77 /* MainStoryboard.storyboard */; };
-		E45144DF15EF29AA00594E77 /* com_tdtsh_ios_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E45144DE15EF29AA00594E77 /* com_tdtsh_ios_ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E42F028C15F5F71D001BB3DB /* RSSAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RSSAppController.h; path = src/controller/RSSAppController.h; sourceTree = "<group>"; };
+		E42F028D15F5F71D001BB3DB /* RSSAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSAppController.m; path = src/controller/RSSAppController.m; sourceTree = "<group>"; };
 		E45144C415EF29AA00594E77 /* iOSAbtP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAbtP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45144C815EF29AA00594E77 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E45144CA15EF29AA00594E77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -29,8 +31,6 @@
 		E45144D715EF29AA00594E77 /* com_tdtsh_ios_AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_tdtsh_ios_AppDelegate.h; sourceTree = "<group>"; };
 		E45144D815EF29AA00594E77 /* com_tdtsh_ios_AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_tdtsh_ios_AppDelegate.m; sourceTree = "<group>"; };
 		E45144DB15EF29AA00594E77 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		E45144DD15EF29AA00594E77 /* com_tdtsh_ios_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = com_tdtsh_ios_ViewController.h; sourceTree = "<group>"; };
-		E45144DE15EF29AA00594E77 /* com_tdtsh_ios_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = com_tdtsh_ios_ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +47,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E42F028715F5F5C7001BB3DB /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E42F028B15F5F62F001BB3DB /* model */,
+				E42F028A15F5F627001BB3DB /* view */,
+				E42F028915F5F61A001BB3DB /* controller */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		E42F028915F5F61A001BB3DB /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				E42F028D15F5F71D001BB3DB /* RSSAppController.m */,
+				E42F028C15F5F71D001BB3DB /* RSSAppController.h */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		E42F028A15F5F627001BB3DB /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		E42F028B15F5F62F001BB3DB /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		E45144B915EF29AA00594E77 = {
 			isa = PBXGroup;
 			children = (
@@ -77,11 +110,10 @@
 		E45144CE15EF29AA00594E77 /* iOSAbtP */ = {
 			isa = PBXGroup;
 			children = (
+				E42F028715F5F5C7001BB3DB /* src */,
 				E45144D715EF29AA00594E77 /* com_tdtsh_ios_AppDelegate.h */,
 				E45144D815EF29AA00594E77 /* com_tdtsh_ios_AppDelegate.m */,
 				E45144DA15EF29AA00594E77 /* MainStoryboard.storyboard */,
-				E45144DD15EF29AA00594E77 /* com_tdtsh_ios_ViewController.h */,
-				E45144DE15EF29AA00594E77 /* com_tdtsh_ios_ViewController.m */,
 				E45144CF15EF29AA00594E77 /* Supporting Files */,
 			);
 			path = iOSAbtP;
@@ -164,7 +196,7 @@
 			files = (
 				E45144D515EF29AA00594E77 /* main.m in Sources */,
 				E45144D915EF29AA00594E77 /* com_tdtsh_ios_AppDelegate.m in Sources */,
-				E45144DF15EF29AA00594E77 /* com_tdtsh_ios_ViewController.m in Sources */,
+				E42F028E15F5F71D001BB3DB /* RSSAppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +312,7 @@
 				E45144E415EF29AA00594E77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

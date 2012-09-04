@@ -8,36 +8,69 @@
 
 #import "RSSAppController.h"
 
-@interface RSSAppController ()
+@interface RSSAppController()
+{
+}
+
++ (RSSAppController*)sharedController;
 
 @end
 
 @implementation RSSAppController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+// RSSAppControllerの参照を入れておく共用static変数
+static RSSAppController*    _sharedInstance = nil;
+
+
++ (RSSAppController*)sharedController
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    // 共用static変数を返す
+    return _sharedInstance;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (!self) {
+        return nil;
     }
+    
+    // 共用static変数に、参照を設定する
+    _sharedInstance = self;
+    
     return self;
 }
 
-- (void)viewDidLoad
+
+- (void)applicationDidFinishLaunching:(UIApplication*)application
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // データを読み込む
+    [[RSSChannelManager sharedManager] load];
+    
+    // チャンネルリストコントローラを作成する
+//    _channelListController = [[RSSChannelListController alloc] init];
+    
+    // ルートとなるナビゲーションコントローラを作成する
+//    _navChannelListController = [[UINavigationController alloc] initWithRootViewController:_channelListController];
+    
+    // ウィンドウにルートビューコントローラを追加する
+    CGRect rect;
+    rect = [UIScreen mainScreen] .applicationFrame;
+    _navChannelListController.view.frame = rect;
+    [_window addSubview:_navChannelListController];
+    
+    // ウィンドウを表示する
+    [_window makeKeyAndVisible];
 }
 
-- (void)viewDidUnload
+- (void)applicationWillTerminate:(UIApplication *)application
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+    // データを保存する
+    [[RSSChannelManager sharedManager] save];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+
+
+
 
 @end

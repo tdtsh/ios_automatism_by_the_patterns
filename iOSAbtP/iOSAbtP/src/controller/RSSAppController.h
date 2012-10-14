@@ -10,6 +10,9 @@
 
 @class RSSChannelListController;
 
+//サンプルコードはこうなっているが
+//@interface RSSAppController : NSObject
+//本ではこうなっている。どっちが正しいのか
 @interface RSSAppController : NSObject <UIApplicationDelegate>
 {
     IBOutlet RSSChannelListController* _channelListController;

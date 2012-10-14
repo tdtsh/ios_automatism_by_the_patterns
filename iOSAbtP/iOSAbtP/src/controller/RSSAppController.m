@@ -6,26 +6,24 @@
 //  Copyright (c) 2012年 tadatoshi_hanazaki. All rights reserved.
 //
 
+#import "RSSChannelManager.h"
+#import "RSSConnector.h"
 #import "RSSAppController.h"
-
-@interface RSSAppController()
-{
-}
-
-+ (RSSAppController*)sharedController;
-
-@end
+#import "RSSChannelListController.h"
 
 @implementation RSSAppController
 
+/////////////////////////////////////////////////////////////////////
+// この様にすることで、他のどのコントローラからでもアプリコントローラ
+// の参照を取得できる
+/////////////////////////////////////////////////////////////////////
 // RSSAppControllerの参照を入れておく共用static変数
-static RSSAppController*    _sharedInstance = nil;
-
+static RSSAppController*    _sharaedInstance = nil;
 
 + (RSSAppController*)sharedController
 {
     // 共用static変数を返す
-    return _sharedInstance;
+    return _sharaedInstance;
 }
 
 - (id)init
@@ -36,10 +34,14 @@ static RSSAppController*    _sharedInstance = nil;
     }
     
     // 共用static変数に、参照を設定する
-    _sharedInstance = self;
+    _sharaedInstance = self;
     
     return self;
 }
+/////////////////////////////////////////////////////////////////////
+
+
+
 
 
 - (void)applicationDidFinishLaunching:(UIApplication*)application
